@@ -1,0 +1,15 @@
+{
+  "@@locale": "tr",
+  "settings": "Ayarlar",
+  "editProfile": "Profili Düzenle",
+  "logout": "Oturumu Kapat",
+  "profileEditClicked": "Profili düzenle tıklandı",
+  "welcome": "Hoş geldiniz!",
+  "mainContent": "Ana İçerik Burada Gösterilir",
+  "login": "Giriş Yap",
+  "signUp": "Kayıt Ol",
+  "email": "E-posta",
+  "password": "Şifre",
+  "needAccount": "Hesabın yok mu? Kayıt ol",
+  "haveAccount": "Hesabın var mı? Giriş yap"
+}

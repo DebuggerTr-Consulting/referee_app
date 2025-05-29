@@ -1,0 +1,15 @@
+{
+  "@@locale": "en",
+  "settings": "Settings",
+  "editProfile": "Edit Profile",
+  "logout": "Sign Out",
+  "profileEditClicked": "Edit profile clicked",
+  "welcome": "Welcome!",
+  "mainContent": "Main Content Goes Here",
+  "login": "Login",
+  "signUp": "Sign Up",
+  "email": "Email",
+  "password": "Password",
+  "needAccount": "Need an account? Sign Up",
+  "haveAccount": "Have an account? Sign In"
+}
