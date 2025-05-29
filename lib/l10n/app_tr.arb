@@ -11,5 +11,8 @@
   "email": "E-posta",
   "password": "Şifre",
   "needAccount": "Hesabın yok mu? Kayıt ol",
-  "haveAccount": "Hesabın var mı? Giriş yap"
+  "haveAccount": "Hesabın var mı? Giriş yap",
+  "signInWithGoogle": "Google ile giriş yap",
+  "signInWithApple": "Apple ile giriş yap"
+
 }

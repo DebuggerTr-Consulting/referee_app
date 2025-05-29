@@ -11,5 +11,7 @@
   "email": "Email",
   "password": "Password",
   "needAccount": "Need an account? Sign Up",
-  "haveAccount": "Have an account? Sign In"
+  "haveAccount": "Have an account? Sign In",
+  "signInWithGoogle": "Sign in with Google",
+  "signInWithApple": "Sign in with Apple"
 }

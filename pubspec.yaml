@@ -36,6 +36,7 @@ l10n:
   preferred-supported-locales:
     - en
     - tr
+    - lv
 
 environment:
   sdk: ^3.7.2

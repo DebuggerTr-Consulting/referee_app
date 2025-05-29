@@ -1,0 +1,18 @@
+{
+  "@@locale": "lv",
+  "login": "Pieslēgties",
+  "signUp": "Reģistrēties",
+  "email": "E-pasts",
+  "password": "Parole",
+  "needAccount": "Nav konta? Reģistrējies",
+  "haveAccount": "Jau ir konts? Pieslēgties",
+  "logout": "Izrakstīties",
+  "settings": "Iestatījumi",
+  "welcome": "Laipni lūdzam",
+  "mainContent": "Šis ir galvenā satura ekrāns.",
+  "editProfile": "Rediģēt profilu",
+  "profileEditClicked": "Noklikšķināts uz profila rediģēšanu.",
+  "signInWithGoogle": "Pieteikties ar Google",
+  "signInWithApple": "Pieteikties ar Apple"
+
+}

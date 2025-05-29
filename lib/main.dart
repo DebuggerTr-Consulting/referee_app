@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:referee_aplication/firebase_options.dart';
 // Import the firebase_app_check plugin
 import 'package:firebase_app_check/firebase_app_check.dart';
-
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'shared/language_constants.dart';
 
 // Replace with your actual main screen file
 // Replace with your actual authentication screen file
@@ -78,6 +78,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
+    // ignore: unnecessary_null_comparison, prefer_if_null_operators
     _locale = widget.startLocale != null
         ? widget.startLocale
         : const Locale('en'); // Default to English if no locale is set
@@ -96,7 +97,8 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       locale: _locale,
-      supportedLocales: const [Locale('en'), Locale('tr')],
+      // supportedLocales: const [Locale('en'), Locale('tr')],
+      supportedLocales: supportedLocaleList,
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
