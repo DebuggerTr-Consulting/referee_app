@@ -97,257 +97,347 @@ abstract class AppLocalizations {
     Locale('tr')
   ];
 
-  /// No description provided for @homeContent.
+  /// The main text displayed on the home screen.
   ///
   /// In en, this message translates to:
   /// **'Home Content'**
   String get homeContent;
 
-  /// No description provided for @calendarContent.
+  /// Text for the calendar section or tab.
   ///
   /// In en, this message translates to:
   /// **'Calendar View'**
   String get calendarContent;
 
-  /// No description provided for @searchContent.
+  /// Text for the search screen or functionality.
   ///
   /// In en, this message translates to:
   /// **'Search View'**
   String get searchContent;
 
-  /// No description provided for @profileContent.
+  /// Main title or content text for the profile page.
   ///
   /// In en, this message translates to:
   /// **'Profile Page'**
   String get profileContent;
 
-  /// No description provided for @settings.
+  /// Label for the settings screen.
   ///
   /// In en, this message translates to:
   /// **'Settings'**
   String get settings;
 
-  /// No description provided for @editProfile.
+  /// Button or screen title to edit user profile.
   ///
   /// In en, this message translates to:
   /// **'Edit Profile'**
   String get editProfile;
 
-  /// No description provided for @logout.
+  /// Label for signing the user out.
   ///
   /// In en, this message translates to:
   /// **'Sign Out'**
   String get logout;
 
-  /// No description provided for @profileEditClicked.
+  /// Confirmation or log text indicating edit profile button was clicked.
   ///
   /// In en, this message translates to:
   /// **'Edit profile clicked'**
   String get profileEditClicked;
 
-  /// No description provided for @welcome.
+  /// Greeting text for the user.
   ///
   /// In en, this message translates to:
   /// **'Welcome!'**
   String get welcome;
 
-  /// No description provided for @mainContent.
+  /// Placeholder or label text for the app’s main content section.
   ///
   /// In en, this message translates to:
   /// **'Main Content Goes Here'**
   String get mainContent;
 
-  /// No description provided for @login.
+  /// Label for the login button or screen.
   ///
   /// In en, this message translates to:
   /// **'Login'**
   String get login;
 
-  /// No description provided for @signUp.
+  /// Label for the sign-up screen or button.
   ///
   /// In en, this message translates to:
   /// **'Sign Up'**
   String get signUp;
 
-  /// No description provided for @email.
+  /// Label for the email input field.
   ///
   /// In en, this message translates to:
   /// **'Email'**
   String get email;
 
-  /// No description provided for @password.
+  /// Label for the password input field.
   ///
   /// In en, this message translates to:
   /// **'Password'**
   String get password;
 
-  /// No description provided for @needAccount.
+  /// Prompt for users to sign up if they don’t have an account.
   ///
   /// In en, this message translates to:
   /// **'Need an account? Sign Up'**
   String get needAccount;
 
-  /// No description provided for @haveAccount.
+  /// Prompt for users to sign in if they already have an account.
   ///
   /// In en, this message translates to:
   /// **'Have an account? Sign In'**
   String get haveAccount;
 
-  /// No description provided for @signInWithGoogle.
+  /// Button text for signing in with Google.
   ///
   /// In en, this message translates to:
   /// **'Sign in with Google'**
   String get signInWithGoogle;
 
-  /// No description provided for @signInWithApple.
+  /// Button text for signing in with Apple.
   ///
   /// In en, this message translates to:
   /// **'Sign in with Apple'**
   String get signInWithApple;
 
-  /// No description provided for @home.
+  /// Navigation tab or label for the home screen.
   ///
   /// In en, this message translates to:
   /// **'Home'**
   String get home;
 
-  /// No description provided for @calendar.
+  /// Navigation tab or label for the calendar screen.
   ///
   /// In en, this message translates to:
   /// **'Calendar'**
   String get calendar;
 
-  /// No description provided for @search.
+  /// Navigation tab or label for the search screen.
   ///
   /// In en, this message translates to:
   /// **'Search'**
   String get search;
 
-  /// No description provided for @profile.
+  /// Navigation tab or label for the profile screen.
   ///
   /// In en, this message translates to:
   /// **'Profile'**
   String get profile;
 
-  /// No description provided for @birthDate.
+  /// Label for the user's birth date field.
   ///
   /// In en, this message translates to:
   /// **'Birth Date'**
   String get birthDate;
 
-  /// No description provided for @refereeStartDate.
+  /// Label for the date the user started refereeing.
   ///
   /// In en, this message translates to:
   /// **'Start Date of Refereeing'**
   String get refereeStartDate;
 
-  /// No description provided for @location.
+  /// Label for displaying user's city and country.
   ///
   /// In en, this message translates to:
   /// **'Location'**
   String get location;
 
-  /// No description provided for @leaguesParticipated.
+  /// Section title for leagues the user participated in.
   ///
   /// In en, this message translates to:
   /// **'Leagues Participated'**
   String get leaguesParticipated;
 
-  /// No description provided for @matches.
+  /// Label indicating number of matches participated.
   ///
   /// In en, this message translates to:
   /// **'matches'**
   String get matches;
 
-  /// No description provided for @save.
+  /// Button text to save form or changes.
   ///
   /// In en, this message translates to:
   /// **'Save'**
   String get save;
 
-  /// No description provided for @requiredField.
+  /// Validation error text for empty fields.
   ///
   /// In en, this message translates to:
   /// **'This field is required'**
   String get requiredField;
 
-  /// No description provided for @name.
+  /// Label for the full name input field.
   ///
   /// In en, this message translates to:
   /// **'Full Name'**
   String get name;
 
-  /// No description provided for @city.
+  /// Label for city input field.
   ///
   /// In en, this message translates to:
   /// **'City'**
   String get city;
 
-  /// No description provided for @country.
+  /// Label for country input field.
   ///
   /// In en, this message translates to:
   /// **'Country'**
   String get country;
 
-  /// No description provided for @logoutConfirm.
+  /// Confirmation message shown before logging out.
   ///
   /// In en, this message translates to:
   /// **'Are you sure you want to sign out?'**
   String get logoutConfirm;
 
-  /// No description provided for @cancel.
+  /// Button text to cancel an action.
   ///
   /// In en, this message translates to:
   /// **'Cancel'**
   String get cancel;
 
-  /// No description provided for @confirm.
+  /// Button text to confirm an action.
   ///
   /// In en, this message translates to:
   /// **'Yes'**
   String get confirm;
 
-  /// No description provided for @gender.
+  /// Label for gender selection field.
   ///
   /// In en, this message translates to:
   /// **'Gender'**
   String get gender;
 
-  /// No description provided for @male.
+  /// Gender option: Male.
   ///
   /// In en, this message translates to:
   /// **'Male'**
   String get male;
 
-  /// No description provided for @female.
+  /// Gender option: Female.
   ///
   /// In en, this message translates to:
   /// **'Female'**
   String get female;
 
-  /// No description provided for @other.
+  /// Gender option: Other.
   ///
   /// In en, this message translates to:
   /// **'Other'**
   String get other;
 
-  /// No description provided for @genderMale.
+  /// Localized gender label for male.
   ///
   /// In en, this message translates to:
   /// **'Male'**
   String get genderMale;
 
-  /// No description provided for @genderFemale.
+  /// Localized gender label for female.
   ///
   /// In en, this message translates to:
   /// **'Female'**
   String get genderFemale;
 
-  /// No description provided for @genderOthers.
+  /// Localized gender label for other.
   ///
   /// In en, this message translates to:
   /// **'Other'**
   String get genderOthers;
+
+  /// Title text for verifying phone number.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify Phone Number'**
+  String get verifyPhone;
+
+  /// Instruction to enter the SMS verification code.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter the SMS code received'**
+  String get enterSmsCode;
+
+  /// Button label to verify phone number.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify'**
+  String get verify;
+
+  /// Success message for phone number verification.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone number verified successfully'**
+  String get verificationSuccess;
+
+  /// Error message for failed phone verification.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone verification failed. Please try again.'**
+  String get verificationFailed;
+
+  /// Label for the phone number input field.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone Number'**
+  String get phoneNumber;
+
+  /// Error message when location permission is not granted.
+  ///
+  /// In en, this message translates to:
+  /// **'Location permission denied. Phone code could not be set automatically.'**
+  String get locationPermissionDenied;
+
+  /// Fallback message when location data is unavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not retrieve location. Default phone code was set.'**
+  String get locationErrorFallback;
+
+  /// Displayed when no phone number is available.
+  ///
+  /// In en, this message translates to:
+  /// **'No phone number'**
+  String get noPhone;
+
+  /// Prompt for the user to enter a verification code.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the verification code'**
+  String get enterCode;
+
+  /// Label for the SMS verification code input field.
+  ///
+  /// In en, this message translates to:
+  /// **'Verification Code'**
+  String get smsCode;
+
+  /// Button label for editing content.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get edit;
+
+  /// Dialog title warning the user.
+  ///
+  /// In en, this message translates to:
+  /// **'Warning'**
+  String get warning;
+
+  /// Prompt shown when user navigates away with unsaved changes.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you want to leave without saving changes?'**
+  String get unsavedChanges;
+
+  /// Button text to discard unsaved changes.
+  ///
+  /// In en, this message translates to:
+  /// **'Discard'**
+  String get discard;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

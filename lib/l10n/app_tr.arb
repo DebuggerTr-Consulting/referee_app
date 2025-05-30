@@ -1,45 +1,231 @@
 {
   "@@locale": "tr",
   "homeContent": "Ana Sayfa İçeriği",
+  "@homeContent": {
+    "description": "Ana sayfada görüntülenen ana metin."
+  },
   "calendarContent": "Takvim Görünümü",
-  "searchContent": "Arama Sayfası",
+  "@calendarContent": {
+    "description": "Takvim bölümü veya sekmesi için metin."
+  },
+  "searchContent": "Arama Görünümü",
+  "@searchContent": {
+    "description": "Arama ekranı veya işlevi için metin."
+  },
   "profileContent": "Profil Sayfası",
+  "@profileContent": {
+    "description": "Profil sayfası için başlık veya ana içerik metni."
+  },
   "settings": "Ayarlar",
+  "@settings": {
+    "description": "Ayarlar ekranı etiketi."
+  },
   "editProfile": "Profili Düzenle",
-  "logout": "Oturumu Kapat",
-  "profileEditClicked": "Profili düzenle tıklandı",
-  "welcome": "Hoş geldiniz!",
-  "mainContent": "Ana İçerik Burada Gösterilir",
+  "@editProfile": {
+    "description": "Kullanıcı profilini düzenleme butonu veya başlığı."
+  },
+  "logout": "Çıkış Yap",
+  "@logout": {
+    "description": "Kullanıcıyı oturumdan çıkartma etiketi."
+  },
+  "profileEditClicked": "Profil düzenleme tıklandı",
+  "@profileEditClicked": {
+    "description": "Profil düzenleme butonuna tıklanıldığında gösterilecek onay veya log metni."
+  },
+  "welcome": "Hoş Geldiniz!",
+  "@welcome": {
+    "description": "Kullanıcı için karşılama metni."
+  },
+  "mainContent": "Ana içerik burada yer alır",
+  "@mainContent": {
+    "description": "Uygulamanın ana içerik bölümü için yer tutucu metin."
+  },
   "login": "Giriş Yap",
+  "@login": {
+    "description": "Giriş butonu veya ekran etiketi."
+  },
   "signUp": "Kayıt Ol",
+  "@signUp": {
+    "description": "Kayıt olma ekranı veya butonu etiketi."
+  },
   "email": "E-posta",
+  "@email": {
+    "description": "E-posta giriş alanı etiketi."
+  },
   "password": "Şifre",
-  "needAccount": "Hesabın yok mu? Kayıt ol",
-  "haveAccount": "Hesabın var mı? Giriş yap",
+  "@password": {
+    "description": "Şifre giriş alanı etiketi."
+  },
+  "needAccount": "Hesabınız yok mu? Kayıt Ol",
+  "@needAccount": {
+    "description": "Kullanıcılara hesapları yoksa kayıt olmaları için öneri."
+  },
+  "haveAccount": "Zaten bir hesabınız var mı? Giriş Yap",
+  "@haveAccount": {
+    "description": "Kullanıcılara zaten hesapları varsa giriş yapmaları için öneri."
+  },
   "signInWithGoogle": "Google ile giriş yap",
+  "@signInWithGoogle": {
+    "description": "Google ile giriş yap butonu metni."
+  },
   "signInWithApple": "Apple ile giriş yap",
+  "@signInWithApple": {
+    "description": "Apple ile giriş yap butonu metni."
+  },
   "home": "Ana Sayfa",
+  "@home": {
+    "description": "Ana sayfa ekranı sekme veya etiketi."
+  },
   "calendar": "Takvim",
+  "@calendar": {
+    "description": "Takvim ekranı sekme veya etiketi."
+  },
   "search": "Arama",
+  "@search": {
+    "description": "Arama ekranı sekme veya etiketi."
+  },
   "profile": "Profil",
+  "@profile": {
+    "description": "Profil ekranı sekme veya etiketi."
+  },
   "birthDate": "Doğum Tarihi",
-  "refereeStartDate": "Hakemliğe Başlama Tarihi",
+  "@birthDate": {
+    "description": "Kullanıcının doğum tarihi alanı etiketi."
+  },
+  "refereeStartDate": "Hakemliğe Başlangıç Tarihi",
+  "@refereeStartDate": {
+    "description": "Kullanıcının hakemliğe başlama tarihi etiketi."
+  },
   "location": "Konum",
-  "leaguesParticipated": "Yer Aldığı Ligler",
+  "@location": {
+    "description": "Kullanıcının şehir ve ülkesini gösteren etiket."
+  },
+  "leaguesParticipated": "Katıldığı Ligler",
+  "@leaguesParticipated": {
+    "description": "Kullanıcının katıldığı ligleri gösteren başlık."
+  },
   "matches": "maç",
+  "@matches": {
+    "description": "Katılım sağlanan maç sayısı etiketi."
+  },
   "save": "Kaydet",
+  "@save": {
+    "description": "Formu veya değişiklikleri kaydetme butonu metni."
+  },
   "requiredField": "Bu alan zorunludur",
+  "@requiredField": {
+    "description": "Boş alanlar için doğrulama hata mesajı."
+  },
   "name": "Ad Soyad",
+  "@name": {
+    "description": "Tam ad giriş alanı etiketi."
+  },
   "city": "Şehir",
+  "@city": {
+    "description": "Şehir giriş alanı etiketi."
+  },
   "country": "Ülke",
-  "logoutConfirm": "Oturumu kapatmak istediğinizden emin misiniz?",
+  "@country": {
+    "description": "Ülke giriş alanı etiketi."
+  },
+  "logoutConfirm": "Çıkış yapmak istediğinize emin misiniz?",
+  "@logoutConfirm": {
+    "description": "Çıkış yapmadan önce gösterilen onay mesajı."
+  },
   "cancel": "İptal",
+  "@cancel": {
+    "description": "Bir işlemi iptal etme butonu metni."
+  },
   "confirm": "Evet",
+  "@confirm": {
+    "description": "Bir işlemi onaylama butonu metni."
+  },
   "gender": "Cinsiyet",
+  "@gender": {
+    "description": "Cinsiyet seçim alanı etiketi."
+  },
   "male": "Erkek",
+  "@male": {
+    "description": "Cinsiyet seçeneği: Erkek."
+  },
   "female": "Kadın",
+  "@female": {
+    "description": "Cinsiyet seçeneği: Kadın."
+  },
   "other": "Diğer",
+  "@other": {
+    "description": "Cinsiyet seçeneği: Diğer."
+  },
   "genderMale": "Erkek",
+  "@genderMale": {
+    "description": "Erkek cinsiyeti için yerelleştirilmiş etiket."
+  },
   "genderFemale": "Kadın",
-  "genderOthers": "Diğer"
+  "@genderFemale": {
+    "description": "Kadın cinsiyeti için yerelleştirilmiş etiket."
+  },
+  "genderOthers": "Diğer",
+  "@genderOthers": {
+    "description": "Diğer cinsiyet seçeneği için yerelleştirilmiş etiket."
+  },
+  "verifyPhone": "Telefonu Doğrula",
+  "@verifyPhone": {
+    "description": "Telefon numarasını doğrulama ekranı başlığı."
+  },
+  "enterSmsCode": "SMS ile gelen doğrulama kodunu girin",
+  "@enterSmsCode": {
+    "description": "Kullanıcıdan SMS doğrulama kodu girmesini isteyen açıklama."
+  },
+  "verify": "Doğrula",
+  "@verify": {
+    "description": "Telefon numarasını doğrulama butonu etiketi."
+  },
+  "verificationSuccess": "Telefon numarası başarıyla doğrulandı",
+  "@verificationSuccess": {
+    "description": "Telefon numarası doğrulaması başarılı olduğunda gösterilen mesaj."
+  },
+  "verificationFailed": "Telefon doğrulaması başarısız oldu. Lütfen tekrar deneyin.",
+  "@verificationFailed": {
+    "description": "Telefon doğrulaması başarısız olduğunda gösterilen hata mesajı."
+  },
+  "phoneNumber": "Telefon Numarası",
+  "@phoneNumber": {
+    "description": "Telefon numarası giriş alanı etiketi."
+  },
+  "locationPermissionDenied": "Konum izni reddedildi. Telefon kodu otomatik ayarlanamadı.",
+  "@locationPermissionDenied": {
+    "description": "Konum izni verilmediğinde gösterilen hata mesajı."
+  },
+  "locationErrorFallback": "Konum alınamadı. Varsayılan telefon kodu ayarlandı.",
+  "@locationErrorFallback": {
+    "description": "Konum verisi alınamazsa gösterilen yedek mesaj."
+  },
+  "noPhone": "Telefon numarası yok",
+  "@noPhone": {
+    "description": "Telefon numarası mevcut değilse gösterilen metin."
+  },
+  "enterCode": "Doğrulama kodunu girin",
+  "@enterCode": {
+    "description": "Kullanıcının doğrulama kodu girmesi için metin."
+  },
+  "smsCode": "Doğrulama Kodu",
+  "@smsCode": {
+    "description": "SMS ile gelen doğrulama kodu giriş alanı etiketi."
+  },
+  "edit": "Düzenle",
+  "@edit": {
+    "description": "İçeriği düzenleme butonu etiketi."
+  },
+  "warning": "Uyarı",
+  "@warning": {
+    "description": "Kullanıcıyı uyaran başlık."
+  },
+  "unsavedChanges": "Değişiklikleri kaydetmeden çıkmak istiyor musunuz?",
+  "@unsavedChanges": {
+    "description": "Kullanıcı kaydetmeden çıkmaya çalıştığında gösterilen uyarı."
+  },
+  "discard": "Vazgeç",
+  "@discard": {
+    "description": "Kaydedilmemiş değişikliklerden vazgeçme butonu metni."
+  }
 }

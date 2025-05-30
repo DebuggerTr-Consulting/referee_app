@@ -40,6 +40,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             onPressed: () async {
               Navigator.of(context).pop();
               await FirebaseAuth.instance.signOut();
+              // ignore: use_build_context_synchronously
               Navigator.of(context).pushAndRemoveUntil(
                 MaterialPageRoute(
                   builder: (context) => AuthScreen(onLocaleChange: widget.onLocaleChange),

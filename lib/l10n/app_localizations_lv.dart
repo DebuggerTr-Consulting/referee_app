@@ -30,13 +30,13 @@ class AppLocalizationsLv extends AppLocalizations {
   String get logout => 'Izrakstīties';
 
   @override
-  String get profileEditClicked => 'Noklikšķināts uz profila rediģēšanu.';
+  String get profileEditClicked => 'Noklikšķināts uz profila rediģēšanas';
 
   @override
-  String get welcome => 'Laipni lūdzam';
+  String get welcome => 'Laipni lūdzam!';
 
   @override
-  String get mainContent => 'Šis ir galvenā satura ekrāns.';
+  String get mainContent => 'Galvenais saturs šeit';
 
   @override
   String get login => 'Pieslēgties';
@@ -51,16 +51,16 @@ class AppLocalizationsLv extends AppLocalizations {
   String get password => 'Parole';
 
   @override
-  String get needAccount => 'Nav konta? Reģistrējies';
+  String get needAccount => 'Nepieciešams konts? Reģistrēties';
 
   @override
-  String get haveAccount => 'Jau ir konts? Pieslēgties';
+  String get haveAccount => 'Jums jau ir konts? Pieslēgties';
 
   @override
-  String get signInWithGoogle => 'Pieteikties ar Google';
+  String get signInWithGoogle => 'Pieslēgties ar Google';
 
   @override
-  String get signInWithApple => 'Pieteikties ar Apple';
+  String get signInWithApple => 'Pieslēgties ar Apple';
 
   @override
   String get home => 'Sākums';
@@ -78,7 +78,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get birthDate => 'Dzimšanas datums';
 
   @override
-  String get refereeStartDate => 'Sākuma datums kā tiesnesim';
+  String get refereeStartDate => 'Tiesāšanas sākuma datums';
 
   @override
   String get location => 'Atrašanās vieta';
@@ -96,7 +96,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get requiredField => 'Šis lauks ir obligāts';
 
   @override
-  String get name => 'Vārds Uzvārds';
+  String get name => 'Pilnais vārds';
 
   @override
   String get city => 'Pilsēta';
@@ -133,4 +133,49 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get genderOthers => 'Cits';
+
+  @override
+  String get verifyPhone => 'Verificēt telefona numuru';
+
+  @override
+  String get enterSmsCode => 'Lūdzu, ievadiet saņemto SMS kodu';
+
+  @override
+  String get verify => 'Verificēt';
+
+  @override
+  String get verificationSuccess => 'Telefona numurs veiksmīgi verificēts';
+
+  @override
+  String get verificationFailed => 'Telefona verificēšana neizdevās. Lūdzu, mēģiniet vēlreiz.';
+
+  @override
+  String get phoneNumber => 'Telefona numurs';
+
+  @override
+  String get locationPermissionDenied => 'Atrašanās vietas atļauja liegta. Telefona kods netika iestatīts automātiski.';
+
+  @override
+  String get locationErrorFallback => 'Neizdevās iegūt atrašanās vietu. Iestatīts noklusējuma kods.';
+
+  @override
+  String get noPhone => 'Nav telefona numura';
+
+  @override
+  String get enterCode => 'Ievadiet verificēšanas kodu';
+
+  @override
+  String get smsCode => 'Verificēšanas kods';
+
+  @override
+  String get edit => 'Rediģēt';
+
+  @override
+  String get warning => 'Brīdinājums';
+
+  @override
+  String get unsavedChanges => 'Vai vēlaties iziet nesaglabājot izmaiņas?';
+
+  @override
+  String get discard => 'Atmest';
 }

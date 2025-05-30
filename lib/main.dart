@@ -55,7 +55,7 @@ Future<void> main() async {
   final systemLang = WidgetsBinding.instance.platformDispatcher.locale.languageCode;
   final locale = savedLang != null
       ? Locale(savedLang)
-      : ['en', 'tr'].contains(systemLang) ? Locale(systemLang) : const Locale('en');
+      : ['en', 'tr', 'lv'].contains(systemLang) ? Locale(systemLang) : const Locale('en');
 
   runApp(MyApp(startLocale: locale, isLoggedIn: isLoggedIn));
 

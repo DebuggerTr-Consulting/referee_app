@@ -1,45 +1,231 @@
 {
   "@@locale": "lv",
   "homeContent": "Sākuma saturs",
+  "@homeContent": {
+    "description": "Galvenais teksts sākuma ekrānā."
+  },
   "calendarContent": "Kalendāra skats",
+  "@calendarContent": {
+    "description": "Teksts kalendāra sadaļai vai cilnei."
+  },
   "searchContent": "Meklēšanas skats",
+  "@searchContent": {
+    "description": "Teksts meklēšanas ekrānam vai funkcijai."
+  },
   "profileContent": "Profila lapa",
-  "login": "Pieslēgties",
-  "signUp": "Reģistrēties",
-  "email": "E-pasts",
-  "password": "Parole",
-  "needAccount": "Nav konta? Reģistrējies",
-  "haveAccount": "Jau ir konts? Pieslēgties",
-  "logout": "Izrakstīties",
+  "@profileContent": {
+    "description": "Galvenais virsraksts vai teksts profila lapai."
+  },
   "settings": "Iestatījumi",
-  "welcome": "Laipni lūdzam",
-  "mainContent": "Šis ir galvenā satura ekrāns.",
+  "@settings": {
+    "description": "Iestatījumu ekrāna nosaukums."
+  },
   "editProfile": "Rediģēt profilu",
-  "profileEditClicked": "Noklikšķināts uz profila rediģēšanu.",
-  "signInWithGoogle": "Pieteikties ar Google",
-  "signInWithApple": "Pieteikties ar Apple",
+  "@editProfile": {
+    "description": "Poga vai virsraksts profila rediģēšanai."
+  },
+  "logout": "Izrakstīties",
+  "@logout": {
+    "description": "Pogas nosaukums, lai izrakstītos no konta."
+  },
+  "profileEditClicked": "Noklikšķināts uz profila rediģēšanas",
+  "@profileEditClicked": {
+    "description": "Apstiprinājums vai reģistrācija, ka noklikšķināts uz rediģēšanas pogas."
+  },
+  "welcome": "Laipni lūdzam!",
+  "@welcome": {
+    "description": "Lietotāja sveiciena teksts."
+  },
+  "mainContent": "Galvenais saturs šeit",
+  "@mainContent": {
+    "description": "Vietturis vai nosaukuma teksts lietotnes galvenajai sadaļai."
+  },
+  "login": "Pieslēgties",
+  "@login": {
+    "description": "Pogas vai ekrāna nosaukums pieslēgšanai."
+  },
+  "signUp": "Reģistrēties",
+  "@signUp": {
+    "description": "Reģistrācijas pogas vai ekrāna nosaukums."
+  },
+  "email": "E-pasts",
+  "@email": {
+    "description": "E-pasta ievades lauka nosaukums."
+  },
+  "password": "Parole",
+  "@password": {
+    "description": "Paroles ievades lauka nosaukums."
+  },
+  "needAccount": "Nepieciešams konts? Reģistrēties",
+  "@needAccount": {
+    "description": "Uzvedne lietotājiem, kuriem nav konta."
+  },
+  "haveAccount": "Jums jau ir konts? Pieslēgties",
+  "@haveAccount": {
+    "description": "Uzvedne lietotājiem, kuriem jau ir konts."
+  },
+  "signInWithGoogle": "Pieslēgties ar Google",
+  "@signInWithGoogle": {
+    "description": "Pogas teksts pieslēgšanai ar Google."
+  },
+  "signInWithApple": "Pieslēgties ar Apple",
+  "@signInWithApple": {
+    "description": "Pogas teksts pieslēgšanai ar Apple."
+  },
   "home": "Sākums",
+  "@home": {
+    "description": "Navigācijas cilne vai nosaukums sākuma ekrānam."
+  },
   "calendar": "Kalendārs",
+  "@calendar": {
+    "description": "Navigācijas cilne vai nosaukums kalendāra ekrānam."
+  },
   "search": "Meklēt",
+  "@search": {
+    "description": "Navigācijas cilne vai nosaukums meklēšanas ekrānam."
+  },
   "profile": "Profils",
+  "@profile": {
+    "description": "Navigācijas cilne vai nosaukums profila ekrānam."
+  },
   "birthDate": "Dzimšanas datums",
-  "refereeStartDate": "Sākuma datums kā tiesnesim",
+  "@birthDate": {
+    "description": "Lietotāja dzimšanas datuma ievades lauka nosaukums."
+  },
+  "refereeStartDate": "Tiesāšanas sākuma datums",
+  "@refereeStartDate": {
+    "description": "Datuma lauka nosaukums, kad lietotājs sāka tiesāt."
+  },
   "location": "Atrašanās vieta",
+  "@location": {
+    "description": "Lietotāja pilsētas un valsts rādīšanas nosaukums."
+  },
   "leaguesParticipated": "Piedalītās līgas",
+  "@leaguesParticipated": {
+    "description": "Sadaļas virsraksts līgām, kurās lietotājs piedalījās."
+  },
   "matches": "spēles",
+  "@matches": {
+    "description": "Etiķete, kas norāda dalības spēļu skaitu."
+  },
   "save": "Saglabāt",
+  "@save": {
+    "description": "Pogas teksts, lai saglabātu veidlapu vai izmaiņas."
+  },
   "requiredField": "Šis lauks ir obligāts",
-  "name": "Vārds Uzvārds",
+  "@requiredField": {
+    "description": "Validācijas kļūdas ziņojums tukšiem laukiem."
+  },
+  "name": "Pilnais vārds",
+  "@name": {
+    "description": "Pilnā vārda ievades lauka nosaukums."
+  },
   "city": "Pilsēta",
+  "@city": {
+    "description": "Pilsētas ievades lauka nosaukums."
+  },
   "country": "Valsts",
+  "@country": {
+    "description": "Valsts ievades lauka nosaukums."
+  },
   "logoutConfirm": "Vai tiešām vēlaties izrakstīties?",
+  "@logoutConfirm": {
+    "description": "Apstiprinājuma ziņojums pirms izrakstīšanās."
+  },
   "cancel": "Atcelt",
+  "@cancel": {
+    "description": "Pogas teksts, lai atceltu darbību."
+  },
   "confirm": "Jā",
+  "@confirm": {
+    "description": "Pogas teksts darbības apstiprināšanai."
+  },
   "gender": "Dzimums",
+  "@gender": {
+    "description": "Dzimuma izvēles lauka nosaukums."
+  },
   "male": "Vīrietis",
+  "@male": {
+    "description": "Dzimuma opcija: Vīrietis."
+  },
   "female": "Sieviete",
+  "@female": {
+    "description": "Dzimuma opcija: Sieviete."
+  },
   "other": "Cits",
+  "@other": {
+    "description": "Dzimuma opcija: Cits."
+  },
   "genderMale": "Vīrietis",
+  "@genderMale": {
+    "description": "Lokalizēta dzimuma etiķete: Vīrietis."
+  },
   "genderFemale": "Sieviete",
-  "genderOthers": "Cits"
+  "@genderFemale": {
+    "description": "Lokalizēta dzimuma etiķete: Sieviete."
+  },
+  "genderOthers": "Cits",
+  "@genderOthers": {
+    "description": "Lokalizēta dzimuma etiķete: Cits."
+  },
+  "verifyPhone": "Verificēt telefona numuru",
+  "@verifyPhone": {
+    "description": "Virsraksts telefona numura verificēšanai."
+  },
+  "enterSmsCode": "Lūdzu, ievadiet saņemto SMS kodu",
+  "@enterSmsCode": {
+    "description": "Norādījums ievadīt SMS verificēšanas kodu."
+  },
+  "verify": "Verificēt",
+  "@verify": {
+    "description": "Pogas teksts telefona numura verificēšanai."
+  },
+  "verificationSuccess": "Telefona numurs veiksmīgi verificēts",
+  "@verificationSuccess": {
+    "description": "Veiksmīgas verificēšanas ziņojums."
+  },
+  "verificationFailed": "Telefona verificēšana neizdevās. Lūdzu, mēģiniet vēlreiz.",
+  "@verificationFailed": {
+    "description": "Kļūdas ziņojums, ja telefona verificēšana neizdodas."
+  },
+  "phoneNumber": "Telefona numurs",
+  "@phoneNumber": {
+    "description": "Telefona numura ievades lauka nosaukums."
+  },
+  "locationPermissionDenied": "Atrašanās vietas atļauja liegta. Telefona kods netika iestatīts automātiski.",
+  "@locationPermissionDenied": {
+    "description": "Kļūdas ziņojums, ja atrašanās vietas atļauja nav piešķirta."
+  },
+  "locationErrorFallback": "Neizdevās iegūt atrašanās vietu. Iestatīts noklusējuma kods.",
+  "@locationErrorFallback": {
+    "description": "Rezerves ziņojums, ja atrašanās vietas dati nav pieejami."
+  },
+  "noPhone": "Nav telefona numura",
+  "@noPhone": {
+    "description": "Tiek rādīts, ja nav pieejams telefona numurs."
+  },
+  "enterCode": "Ievadiet verificēšanas kodu",
+  "@enterCode": {
+    "description": "Uzvedne, lai ievadītu verificēšanas kodu."
+  },
+  "smsCode": "Verificēšanas kods",
+  "@smsCode": {
+    "description": "SMS verificēšanas koda ievades lauka nosaukums."
+  },
+  "edit": "Rediģēt",
+  "@edit": {
+    "description": "Pogas teksts satura rediģēšanai."
+  },
+  "warning": "Brīdinājums",
+  "@warning": {
+    "description": "Dialoga virsraksts, kas brīdina lietotāju."
+  },
+  "unsavedChanges": "Vai vēlaties iziet nesaglabājot izmaiņas?",
+  "@unsavedChanges": {
+    "description": "Uzvedne, kad lietotājs atstāj lapu bez saglabāšanas."
+  },
+  "discard": "Atmest",
+  "@discard": {
+    "description": "Pogas teksts izmaiņu atmešanai."
+  }
 }

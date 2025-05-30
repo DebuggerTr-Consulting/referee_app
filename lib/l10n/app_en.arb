@@ -1,48 +1,231 @@
 {
   "@@locale": "en",
   "homeContent": "Home Content",
-  "@homeContent": {},
+  "@homeContent": {
+    "description": "The main text displayed on the home screen."
+  },
   "calendarContent": "Calendar View",
-  "@calendarContent": {},
+  "@calendarContent": {
+    "description": "Text for the calendar section or tab."
+  },
   "searchContent": "Search View",
-  "@searchContent": {},
+  "@searchContent": {
+    "description": "Text for the search screen or functionality."
+  },
   "profileContent": "Profile Page",
+  "@profileContent": {
+    "description": "Main title or content text for the profile page."
+  },
   "settings": "Settings",
+  "@settings": {
+    "description": "Label for the settings screen."
+  },
   "editProfile": "Edit Profile",
+  "@editProfile": {
+    "description": "Button or screen title to edit user profile."
+  },
   "logout": "Sign Out",
+  "@logout": {
+    "description": "Label for signing the user out."
+  },
   "profileEditClicked": "Edit profile clicked",
+  "@profileEditClicked": {
+    "description": "Confirmation or log text indicating edit profile button was clicked."
+  },
   "welcome": "Welcome!",
+  "@welcome": {
+    "description": "Greeting text for the user."
+  },
   "mainContent": "Main Content Goes Here",
+  "@mainContent": {
+    "description": "Placeholder or label text for the app’s main content section."
+  },
   "login": "Login",
+  "@login": {
+    "description": "Label for the login button or screen."
+  },
   "signUp": "Sign Up",
+  "@signUp": {
+    "description": "Label for the sign-up screen or button."
+  },
   "email": "Email",
+  "@email": {
+    "description": "Label for the email input field."
+  },
   "password": "Password",
+  "@password": {
+    "description": "Label for the password input field."
+  },
   "needAccount": "Need an account? Sign Up",
+  "@needAccount": {
+    "description": "Prompt for users to sign up if they don’t have an account."
+  },
   "haveAccount": "Have an account? Sign In",
+  "@haveAccount": {
+    "description": "Prompt for users to sign in if they already have an account."
+  },
   "signInWithGoogle": "Sign in with Google",
+  "@signInWithGoogle": {
+    "description": "Button text for signing in with Google."
+  },
   "signInWithApple": "Sign in with Apple",
+  "@signInWithApple": {
+    "description": "Button text for signing in with Apple."
+  },
   "home": "Home",
+  "@home": {
+    "description": "Navigation tab or label for the home screen."
+  },
   "calendar": "Calendar",
+  "@calendar": {
+    "description": "Navigation tab or label for the calendar screen."
+  },
   "search": "Search",
+  "@search": {
+    "description": "Navigation tab or label for the search screen."
+  },
   "profile": "Profile",
+  "@profile": {
+    "description": "Navigation tab or label for the profile screen."
+  },
   "birthDate": "Birth Date",
+  "@birthDate": {
+    "description": "Label for the user's birth date field."
+  },
   "refereeStartDate": "Start Date of Refereeing",
+  "@refereeStartDate": {
+    "description": "Label for the date the user started refereeing."
+  },
   "location": "Location",
+  "@location": {
+    "description": "Label for displaying user's city and country."
+  },
   "leaguesParticipated": "Leagues Participated",
+  "@leaguesParticipated": {
+    "description": "Section title for leagues the user participated in."
+  },
   "matches": "matches",
+  "@matches": {
+    "description": "Label indicating number of matches participated."
+  },
   "save": "Save",
+  "@save": {
+    "description": "Button text to save form or changes."
+  },
   "requiredField": "This field is required",
+  "@requiredField": {
+    "description": "Validation error text for empty fields."
+  },
   "name": "Full Name",
+  "@name": {
+    "description": "Label for the full name input field."
+  },
   "city": "City",
+  "@city": {
+    "description": "Label for city input field."
+  },
   "country": "Country",
+  "@country": {
+    "description": "Label for country input field."
+  },
   "logoutConfirm": "Are you sure you want to sign out?",
+  "@logoutConfirm": {
+    "description": "Confirmation message shown before logging out."
+  },
   "cancel": "Cancel",
+  "@cancel": {
+    "description": "Button text to cancel an action."
+  },
   "confirm": "Yes",
+  "@confirm": {
+    "description": "Button text to confirm an action."
+  },
   "gender": "Gender",
+  "@gender": {
+    "description": "Label for gender selection field."
+  },
   "male": "Male",
+  "@male": {
+    "description": "Gender option: Male."
+  },
   "female": "Female",
+  "@female": {
+    "description": "Gender option: Female."
+  },
   "other": "Other",
+  "@other": {
+    "description": "Gender option: Other."
+  },
   "genderMale": "Male",
+  "@genderMale": {
+    "description": "Localized gender label for male."
+  },
   "genderFemale": "Female",
-  "genderOthers": "Other"
+  "@genderFemale": {
+    "description": "Localized gender label for female."
+  },
+  "genderOthers": "Other",
+  "@genderOthers": {
+    "description": "Localized gender label for other."
+  },
+  "verifyPhone": "Verify Phone Number",
+  "@verifyPhone": {
+    "description": "Title text for verifying phone number."
+  },
+  "enterSmsCode": "Please enter the SMS code received",
+  "@enterSmsCode": {
+    "description": "Instruction to enter the SMS verification code."
+  },
+  "verify": "Verify",
+  "@verify": {
+    "description": "Button label to verify phone number."
+  },
+  "verificationSuccess": "Phone number verified successfully",
+  "@verificationSuccess": {
+    "description": "Success message for phone number verification."
+  },
+  "verificationFailed": "Phone verification failed. Please try again.",
+  "@verificationFailed": {
+    "description": "Error message for failed phone verification."
+  },
+  "phoneNumber": "Phone Number",
+  "@phoneNumber": {
+    "description": "Label for the phone number input field."
+  },
+  "locationPermissionDenied": "Location permission denied. Phone code could not be set automatically.",
+  "@locationPermissionDenied": {
+    "description": "Error message when location permission is not granted."
+  },
+  "locationErrorFallback": "Could not retrieve location. Default phone code was set.",
+  "@locationErrorFallback": {
+    "description": "Fallback message when location data is unavailable."
+  },
+  "noPhone": "No phone number",
+  "@noPhone": {
+    "description": "Displayed when no phone number is available."
+  },
+  "enterCode": "Enter the verification code",
+  "@enterCode": {
+    "description": "Prompt for the user to enter a verification code."
+  },
+  "smsCode": "Verification Code",
+  "@smsCode": {
+    "description": "Label for the SMS verification code input field."
+  },
+  "edit": "Edit",
+  "@edit": {
+    "description": "Button label for editing content."
+  },
+  "warning": "Warning",
+  "@warning": {
+    "description": "Dialog title warning the user."
+  },
+  "unsavedChanges": "Do you want to leave without saving changes?",
+  "@unsavedChanges": {
+    "description": "Prompt shown when user navigates away with unsaved changes."
+  },
+  "discard": "Discard",
+  "@discard": {
+    "description": "Button text to discard unsaved changes."
+  }
 }

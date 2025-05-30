@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'settings_screen.dart';
 import '/l10n/app_localizations.dart';
+import 'settings_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   final void Function(Locale) onLocaleChange;
@@ -69,6 +69,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
+    final userPhone = FirebaseAuth.instance.currentUser?.phoneNumber;
 
     return Scaffold(
       appBar: AppBar(
@@ -81,70 +82,80 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 context,
                 MaterialPageRoute(
                   builder:
-                      (context) =>
-                          SettingsScreen(onLocaleChange: widget.onLocaleChange),
+                      (context) => SettingsScreen(onLocaleChange: widget.onLocaleChange),
                 ),
               ).then((_) => fetchUserData());
             },
           ),
         ],
       ),
-      body:
-          isLoading
-              ? const Center(child: CircularProgressIndicator())
-              : Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        const CircleAvatar(
-                          radius: 40,
-                          child: Icon(Icons.person, size: 40),
-                        ),
-                        const SizedBox(width: 16),
-                        Expanded(
-                          child: Text(
-                            name,
-                            style: const TextStyle(
-                              fontSize: 22,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 20),
-                    Text("${t.birthDate}: $birthDate"),
-                    Text("${t.refereeStartDate}: $startRefDate"),
-                    Text("${t.location}: $city, $country"),
-                    Text("${t.gender}: ${getLocalizedGender(t, gender)}"),
-                    const Divider(height: 40),
-                    Text(
-                      t.leaguesParticipated,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
+      body: isLoading
+          ? const Center(child: CircularProgressIndicator())
+          : Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      const CircleAvatar(
+                        radius: 40,
+                        child: Icon(Icons.person, size: 40),
                       ),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              name,
+                              style: const TextStyle(
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              userPhone ?? t.noPhone,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+                  Text("${t.birthDate}: $birthDate"),
+                  Text("${t.refereeStartDate}: $startRefDate"),
+                  Text("${t.gender}: ${getLocalizedGender(t, gender)}"),
+                  Text("${t.location}: $city, $country"),
+                  const Divider(height: 40),
+                  Text(
+                    t.leaguesParticipated,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
                     ),
-                    const SizedBox(height: 10),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children:
-                          leagues.map((league) {
-                            return Column(
-                              children: [
-                                Icon(league["logo"], size: 40),
-                                const SizedBox(height: 4),
-                                Text("${league["matches"]} ${t.matches}"),
-                              ],
-                            );
-                          }).toList(),
-                    ),
-                  ],
-                ),
+                  ),
+                  const SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children:
+                        leagues.map((league) {
+                          return Column(
+                            children: [
+                              Icon(league["logo"], size: 40),
+                              const SizedBox(height: 4),
+                              Text("${league["matches"]} ${t.matches}"),
+                            ],
+                          );
+                        }).toList(),
+                  ),
+                ],
               ),
+            ),
     );
   }
 }

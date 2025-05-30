@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '/l10n/app_localizations.dart';
-import 'package:image_picker/image_picker.dart';
-import 'dart:io';
 
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({super.key});
@@ -14,16 +12,15 @@ class EditProfileScreen extends StatefulWidget {
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
   final _formKey = GlobalKey<FormState>();
-
   final _nameController = TextEditingController();
   final _birthDateController = TextEditingController();
   final _startRefDateController = TextEditingController();
   final _cityController = TextEditingController();
   final _countryController = TextEditingController();
-
-  File? _profileImage;
-  bool _isLoading = false;
+  final _smsCodeController = TextEditingController();
   String? _selectedGender;
+  bool _isLoading = false;
+  bool _isChanged = false;
 
   @override
   void initState() {
@@ -34,8 +31,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   Future<void> _loadUserData() async {
     final uid = FirebaseAuth.instance.currentUser?.uid;
     if (uid != null) {
-      final doc =
-          await FirebaseFirestore.instance.collection('users').doc(uid).get();
+      final doc = await FirebaseFirestore.instance.collection('users').doc(uid).get();
       final data = doc.data();
       if (data != null) {
         _nameController.text = data['name'] ?? '';
@@ -49,38 +45,16 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     }
   }
 
-  Future<void> _pickImage() async {
-    final picker = ImagePicker();
-    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
-    if (pickedFile != null) {
-      setState(() => _profileImage = File(pickedFile.path));
-    }
-  }
-
   Future<void> _selectDate(TextEditingController controller) async {
     DateTime? picked = await showDatePicker(
       context: context,
       initialDate: DateTime.now(),
       firstDate: DateTime(1900),
       lastDate: DateTime.now(),
-      builder: (context, child) {
-        return Theme(
-          data: Theme.of(context).copyWith(
-            colorScheme: ColorScheme.light(
-              primary: Theme.of(context).primaryColor,
-              onPrimary: Colors.white,
-              onSurface: Colors.black,
-            ),
-            dialogBackgroundColor: Colors.white,
-          ),
-          child: child!,
-        );
-      },
     );
-
     if (picked != null) {
-      controller.text =
-          "${picked.day.toString().padLeft(2, '0')}.${picked.month.toString().padLeft(2, '0')}.${picked.year}";
+      controller.text = "${picked.day.toString().padLeft(2, '0')}.${picked.month.toString().padLeft(2, '0')}.${picked.year}";
+      _isChanged = true;
     }
   }
 
@@ -99,7 +73,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         }, SetOptions(merge: true));
       }
       setState(() => _isLoading = false);
-      if (mounted) Navigator.pop(context);
+      if (mounted) Navigator.pop(context, true);
     }
   }
 
@@ -107,39 +81,62 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
 
-    return Scaffold(
-      appBar: AppBar(title: Text(t.editProfile)),
-      body:
-          _isLoading
-              ? const Center(child: CircularProgressIndicator())
-              : Padding(
+    return PopScope(
+      canPop: !_isChanged,
+      onPopInvokedWithResult: (didPop, result) async {
+        if (!didPop && _isChanged) {
+          final shouldDiscard = await showDialog<bool>(
+            context: context,
+            builder: (context) => AlertDialog(
+              title: Text(t.warning),
+              content: Text(t.unsavedChanges),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.of(context).pop(false),
+                  child: Text(t.cancel),
+                ),
+                TextButton(
+                  onPressed: () => Navigator.of(context).pop(true),
+                  child: Text(t.discard),
+                ),
+              ],
+            ),
+          );
+
+          // ignore: use_build_context_synchronously
+          if (shouldDiscard == true && mounted) Navigator.of(context).pop();
+        }
+      },
+      child: Scaffold(
+        appBar: AppBar(title: Text(t.editProfile)),
+        body: _isLoading
+            ? const Center(child: CircularProgressIndicator())
+            : Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Form(
                   key: _formKey,
                   child: ListView(
                     children: [
-                      Center(
-                        child: GestureDetector(
-                          onTap: _pickImage,
-                          child: CircleAvatar(
-                            radius: 40,
-                            backgroundImage:
-                                _profileImage != null
-                                    ? FileImage(_profileImage!)
-                                    : null,
-                            child:
-                                _profileImage == null
-                                    ? const Icon(Icons.person, size: 40)
-                                    : null,
+                      Row(
+                        children: [
+                          const CircleAvatar(radius: 40, child: Icon(Icons.person, size: 40)),
+                          const SizedBox(width: 16),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(_nameController.text, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                              ],
+                            ),
                           ),
-                        ),
+                        ],
                       ),
-                      const SizedBox(height: 16),
+                      const SizedBox(height: 20),
                       TextFormField(
                         controller: _nameController,
                         decoration: InputDecoration(labelText: t.name),
-                        validator:
-                            (value) => value!.isEmpty ? t.requiredField : null,
+                        validator: (value) => value!.isEmpty ? t.requiredField : null,
+                        onChanged: (_) => _isChanged = true,
                       ),
                       TextFormField(
                         controller: _birthDateController,
@@ -150,48 +147,40 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       TextFormField(
                         controller: _startRefDateController,
                         readOnly: true,
-                        decoration: InputDecoration(
-                          labelText: t.refereeStartDate,
-                        ),
+                        decoration: InputDecoration(labelText: t.refereeStartDate),
                         onTap: () => _selectDate(_startRefDateController),
                       ),
                       TextFormField(
                         controller: _cityController,
                         decoration: InputDecoration(labelText: t.city),
+                        onChanged: (_) => _isChanged = true,
                       ),
                       TextFormField(
                         controller: _countryController,
                         decoration: InputDecoration(labelText: t.country),
+                        onChanged: (_) => _isChanged = true,
                       ),
-                      const SizedBox(height: 16),
                       DropdownButtonFormField<String>(
                         value: _selectedGender,
                         decoration: InputDecoration(labelText: t.gender),
                         items: [
-                          DropdownMenuItem(value: 'male', child: Text(t.male)),
-                          DropdownMenuItem(
-                            value: 'female',
-                            child: Text(t.female),
-                          ),
-                          DropdownMenuItem(
-                            value: 'other',
-                            child: Text(t.other),
-                          ),
+                          DropdownMenuItem(value: 'male', child: Text(t.genderMale)),
+                          DropdownMenuItem(value: 'female', child: Text(t.genderFemale)),
+                          DropdownMenuItem(value: 'other', child: Text(t.genderOthers)),
                         ],
-                        onChanged:
-                            (value) => setState(() => _selectedGender = value),
-                        validator:
-                            (value) => value == null ? t.requiredField : null,
+                        onChanged: (value) {
+                          setState(() => _selectedGender = value);
+                          _isChanged = true;
+                        },
+                        validator: (value) => value == null ? t.requiredField : null,
                       ),
                       const SizedBox(height: 20),
-                      ElevatedButton(
-                        onPressed: _saveProfile,
-                        child: Text(t.save),
-                      ),
+                      ElevatedButton(onPressed: _saveProfile, child: Text(t.save)),
                     ],
                   ),
                 ),
               ),
+      ),
     );
   }
 
@@ -202,6 +191,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     _startRefDateController.dispose();
     _cityController.dispose();
     _countryController.dispose();
+    _smsCodeController.dispose();
     super.dispose();
   }
 }

@@ -50,6 +50,8 @@
 	<string>Fotoğraf çekmek için kameraya erişim gerekiyor</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Fotoğraflara erişim gerekiyor</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Lokasyonunuzu almak istiyoruz çünkü telefon kodunu otomatik belirliyoruz.</string>
 
 </dict>
 </plist>

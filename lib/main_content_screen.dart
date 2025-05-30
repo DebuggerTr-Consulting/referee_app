@@ -23,6 +23,7 @@ class _MainContentScreenState extends State<MainContentScreen> {
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
 
+    // ignore: no_leading_underscores_for_local_identifiers
     final List<Widget> _pages = [
       Center(child: Text(t.home)), // Translated home label
       Center(child: Text(t.calendar)),

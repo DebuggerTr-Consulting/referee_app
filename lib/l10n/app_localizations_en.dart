@@ -133,4 +133,49 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get genderOthers => 'Other';
+
+  @override
+  String get verifyPhone => 'Verify Phone Number';
+
+  @override
+  String get enterSmsCode => 'Please enter the SMS code received';
+
+  @override
+  String get verify => 'Verify';
+
+  @override
+  String get verificationSuccess => 'Phone number verified successfully';
+
+  @override
+  String get verificationFailed => 'Phone verification failed. Please try again.';
+
+  @override
+  String get phoneNumber => 'Phone Number';
+
+  @override
+  String get locationPermissionDenied => 'Location permission denied. Phone code could not be set automatically.';
+
+  @override
+  String get locationErrorFallback => 'Could not retrieve location. Default phone code was set.';
+
+  @override
+  String get noPhone => 'No phone number';
+
+  @override
+  String get enterCode => 'Enter the verification code';
+
+  @override
+  String get smsCode => 'Verification Code';
+
+  @override
+  String get edit => 'Edit';
+
+  @override
+  String get warning => 'Warning';
+
+  @override
+  String get unsavedChanges => 'Do you want to leave without saving changes?';
+
+  @override
+  String get discard => 'Discard';
 }
