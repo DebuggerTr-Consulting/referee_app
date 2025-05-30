@@ -1,15 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'settings_screen.dart';
+import '/l10n/app_localizations.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   final void Function(Locale) onLocaleChange;
+  const ProfileScreen({super.key, required this.onLocaleChange});
 
-  final String name = "Mustafa Yılmaz";
-  final String birthDate = "01.01.1987";
-  final String startRefDate = "02.11.2008";
-  final String city = "İstanbul";
-  final String country = "Türkiye";
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  String name = "";
+  String birthDate = "";
+  String startRefDate = "";
+  String city = "";
+  String country = "";
+  String gender = "";
+  bool isLoading = true;
 
   final List<Map<String, dynamic>> leagues = [
     {"name": "Süper Lig", "logo": Icons.sports_soccer, "matches": 32},
@@ -17,7 +27,44 @@ class ProfileScreen extends StatelessWidget {
     {"name": "UEFA", "logo": Icons.public, "matches": 12},
   ];
 
-  ProfileScreen({super.key, required this.onLocaleChange});
+  @override
+  void initState() {
+    super.initState();
+    fetchUserData();
+  }
+
+  Future<void> fetchUserData() async {
+    final uid = FirebaseAuth.instance.currentUser?.uid;
+    if (uid != null) {
+      final doc =
+          await FirebaseFirestore.instance.collection('users').doc(uid).get();
+      final data = doc.data();
+      if (data != null) {
+        setState(() {
+          name = data['name'] ?? "";
+          birthDate = data['birthDate'] ?? "";
+          startRefDate = data['startRefDate'] ?? "";
+          city = data['city'] ?? "";
+          country = data['country'] ?? "";
+          gender = data['gender'] ?? "";
+          isLoading = false;
+        });
+      }
+    }
+  }
+
+  String getLocalizedGender(AppLocalizations t, String gender) {
+    switch (gender.toLowerCase()) {
+      case 'male':
+        return t.genderMale;
+      case 'female':
+        return t.genderFemale;
+      case 'other':
+        return t.genderOthers;
+      default:
+        return gender;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,60 +75,76 @@ class ProfileScreen extends StatelessWidget {
         title: Text(t.profile),
         actions: [
           IconButton(
-            icon: Icon(Icons.settings),
+            icon: const Icon(Icons.settings),
             onPressed: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => SettingsScreen(onLocaleChange: onLocaleChange),
+                  builder:
+                      (context) =>
+                          SettingsScreen(onLocaleChange: widget.onLocaleChange),
                 ),
-              );
+              ).then((_) => fetchUserData());
             },
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                const CircleAvatar(
-                  radius: 40,
-                  backgroundImage: AssetImage('lib/assets/profile_placeholder.png'),
-                ),
-                const SizedBox(width: 16),
-                Expanded(
-                  child: Text(
-                    name,
-                    style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 20),
-            Text("${t.birthDate}: $birthDate"),
-            Text("${t.refereeStartDate}: $startRefDate"),
-            Text("${t.location}: $city, $country"),
-            const Divider(height: 40),
-            Text(t.leaguesParticipated, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-            const SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: leagues.map((league) {
-                return Column(
+      body:
+          isLoading
+              ? const Center(child: CircularProgressIndicator())
+              : Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Icon(league["logo"], size: 40),
-                    const SizedBox(height: 4),
-                    Text("${league["matches"]} ${t.matches}"),
+                    Row(
+                      children: [
+                        const CircleAvatar(
+                          radius: 40,
+                          child: Icon(Icons.person, size: 40),
+                        ),
+                        const SizedBox(width: 16),
+                        Expanded(
+                          child: Text(
+                            name,
+                            style: const TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 20),
+                    Text("${t.birthDate}: $birthDate"),
+                    Text("${t.refereeStartDate}: $startRefDate"),
+                    Text("${t.location}: $city, $country"),
+                    Text("${t.gender}: ${getLocalizedGender(t, gender)}"),
+                    const Divider(height: 40),
+                    Text(
+                      t.leaguesParticipated,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children:
+                          leagues.map((league) {
+                            return Column(
+                              children: [
+                                Icon(league["logo"], size: 40),
+                                const SizedBox(height: 4),
+                                Text("${league["matches"]} ${t.matches}"),
+                              ],
+                            );
+                          }).toList(),
+                    ),
                   ],
-                );
-              }).toList(),
-            )
-          ],
-        ),
-      ),
+                ),
+              ),
     );
   }
 }

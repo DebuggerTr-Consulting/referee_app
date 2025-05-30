@@ -1,9 +1,9 @@
 {
   "@@locale": "tr",
   "homeContent": "Ana Sayfa İçeriği",
-"calendarContent": "Takvim Görünümü",
-"searchContent": "Arama Sayfası",
-"profileContent": "Profil Sayfası",
+  "calendarContent": "Takvim Görünümü",
+  "searchContent": "Arama Sayfası",
+  "profileContent": "Profil Sayfası",
   "settings": "Ayarlar",
   "editProfile": "Profili Düzenle",
   "logout": "Oturumu Kapat",
@@ -18,7 +18,7 @@
   "haveAccount": "Hesabın var mı? Giriş yap",
   "signInWithGoogle": "Google ile giriş yap",
   "signInWithApple": "Apple ile giriş yap",
-   "home": "Ana Sayfa",
+  "home": "Ana Sayfa",
   "calendar": "Takvim",
   "search": "Arama",
   "profile": "Profil",
@@ -27,6 +27,19 @@
   "location": "Konum",
   "leaguesParticipated": "Yer Aldığı Ligler",
   "matches": "maç",
-  "settings": "Ayarlar"
-
+  "save": "Kaydet",
+  "requiredField": "Bu alan zorunludur",
+  "name": "Ad Soyad",
+  "city": "Şehir",
+  "country": "Ülke",
+  "logoutConfirm": "Oturumu kapatmak istediğinizden emin misiniz?",
+  "cancel": "İptal",
+  "confirm": "Evet",
+  "gender": "Cinsiyet",
+  "male": "Erkek",
+  "female": "Kadın",
+  "other": "Diğer",
+  "genderMale": "Erkek",
+  "genderFemale": "Kadın",
+  "genderOthers": "Diğer"
 }

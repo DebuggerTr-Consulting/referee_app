@@ -4,7 +4,7 @@ import 'package:referee_aplication/firebase_options.dart';
 // Import the firebase_app_check plugin
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '/l10n/app_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'shared/language_constants.dart';
 

@@ -4,51 +4,10 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'dart:io' show Platform;
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'main_content_screen.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '/l10n/app_localizations.dart';
 import 'shared/language_constants.dart';
-
-ElevatedButton googleButton(BuildContext context, VoidCallback onPressed) {
-  return ElevatedButton.icon(
-    icon: Image.asset('lib/assets/ios_neutral_sq_na@2x.png', height: 24),
-    label: Padding(
-      padding: EdgeInsets.symmetric(vertical: 12.0),
-      child: Text(AppLocalizations.of(context)!.signInWithGoogle),
-    ),
-    style: ElevatedButton.styleFrom(
-      backgroundColor: Colors.white,
-      foregroundColor: Colors.black87,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(4.0),
-        side: BorderSide(color: Colors.grey.shade300),
-      ),
-    ),
-    onPressed: onPressed,
-  );
-}
-
-// Widget appleSignInButton(VoidCallback onPressed) {
-//   return SignInWithAppleButton(
-//     onPressed: onPressed,
-//     height: 48,
-//     borderRadius: const BorderRadius.all(Radius.circular(4.0)),
-//   );
-// }
-
-Widget appleSignInButton(BuildContext context, VoidCallback onPressed) {
-  final t = AppLocalizations.of(context)!;
-
-  return ElevatedButton.icon(
-    icon: Icon(Icons.apple),
-    label: Text(t.signInWithApple),
-    onPressed: onPressed,
-    style: ElevatedButton.styleFrom(
-      backgroundColor: Colors.black,
-      foregroundColor: Colors.white,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4.0)),
-    ),
-  );
-}
 
 class AuthScreen extends StatefulWidget {
   final void Function(Locale) onLocaleChange;
@@ -66,7 +25,6 @@ class AuthScreenState extends State<AuthScreen> {
 
   String _errorMessage = '';
   bool _isSignInMode = true;
-
   String _selectedLanguageCode = 'en';
 
   Future<void> _signInWithEmailAndPassword() async {
@@ -81,6 +39,33 @@ class AuthScreenState extends State<AuthScreen> {
       _navigateToMainContent();
     } catch (e) {
       setState(() => _errorMessage = 'Login failed');
+    }
+  }
+
+  Future<void> _signUpWithEmailAndPassword() async {
+    setState(() => _errorMessage = '');
+    try {
+      await _auth.createUserWithEmailAndPassword(
+        email: _emailController.text.trim(),
+        password: _passwordController.text.trim(),
+      );
+      await Future.delayed(Duration(milliseconds: 100));
+      final user = _auth.currentUser;
+      if (user != null) {
+        await FirebaseFirestore.instance.collection('users').doc(user.uid).set({
+          'name': '',
+          'birthDate': '',
+          'startRefDate': '',
+          'city': '',
+          'country': '',
+        });
+      }
+
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setBool('isLoggedIn', true);
+      _navigateToMainContent();
+    } catch (e) {
+      setState(() => _errorMessage = 'Sign Up failed');
     }
   }
 
@@ -102,6 +87,22 @@ class AuthScreenState extends State<AuthScreen> {
       );
 
       await _auth.signInWithCredential(credential);
+
+      final user = _auth.currentUser;
+      if (user != null) {
+        final doc = await FirebaseFirestore.instance.collection('users').doc(user.uid).get();
+        if (!doc.exists) {
+          await FirebaseFirestore.instance.collection('users').doc(user.uid).set({
+            'name': '',
+            'birthDate': '',
+            'startRefDate': '',
+            'city': '',
+            'country': '',
+            'gender': '',
+          });
+        }
+      }
+
       final prefs = await SharedPreferences.getInstance();
       await prefs.setBool('isLoggedIn', true);
       _navigateToMainContent();
@@ -128,6 +129,22 @@ class AuthScreenState extends State<AuthScreen> {
         );
 
         await _auth.signInWithCredential(appleProviderCredential);
+
+        final user = _auth.currentUser;
+        if (user != null) {
+          final doc = await FirebaseFirestore.instance.collection('users').doc(user.uid).get();
+          if (!doc.exists) {
+            await FirebaseFirestore.instance.collection('users').doc(user.uid).set({
+              'name': '',
+              'birthDate': '',
+              'startRefDate': '',
+              'city': '',
+              'country': '',
+              'gender': '',
+            });
+          }
+        }
+
         final prefs = await SharedPreferences.getInstance();
         await prefs.setBool('isLoggedIn', true);
         _navigateToMainContent();
@@ -135,10 +152,7 @@ class AuthScreenState extends State<AuthScreen> {
         setState(() => _errorMessage = 'Apple Sign-In failed.');
       }
     } else {
-      setState(
-        () =>
-            _errorMessage = 'Apple Sign-In is only available on Apple devices.',
-      );
+      setState(() => _errorMessage = 'Apple Sign-In is only available on Apple devices.');
     }
   }
 
@@ -146,8 +160,7 @@ class AuthScreenState extends State<AuthScreen> {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder:
-            (_) => MainContentScreen(onLocaleChange: widget.onLocaleChange),
+        builder: (_) => MainContentScreen(onLocaleChange: widget.onLocaleChange),
       ),
     );
   }
@@ -173,16 +186,15 @@ class AuthScreenState extends State<AuthScreen> {
                   widget.onLocaleChange(Locale(newValue));
                 }
               },
-              items:
-                  (languageList
-                        ..sort((a, b) => a['label']!.compareTo(b['label']!)))
-                      .map(
-                        (lang) => DropdownMenuItem<String>(
-                          value: lang['code'],
-                          child: Text('${lang['emoji']} ${lang['label']}'),
-                        ),
-                      )
-                      .toList(),
+              items: (languageList
+                    ..sort((a, b) => a['label']!.compareTo(b['label']!)))
+                  .map(
+                    (lang) => DropdownMenuItem<String>(
+                      value: lang['code'],
+                      child: Text('${lang['emoji']} ${lang['label']}'),
+                    ),
+                  )
+                  .toList(),
             ),
             const SizedBox(height: 20),
             TextField(
@@ -196,37 +208,28 @@ class AuthScreenState extends State<AuthScreen> {
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: _signInWithEmailAndPassword,
+              onPressed: _isSignInMode ? _signInWithEmailAndPassword : _signUpWithEmailAndPassword,
               child: Text(_isSignInMode ? t.login : t.signUp),
             ),
             TextButton(
               onPressed: () => setState(() => _isSignInMode = !_isSignInMode),
               child: Text(_isSignInMode ? t.needAccount : t.haveAccount),
             ),
-            // const SizedBox(height: 20),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.center,
-            //   children: [
-            //     ElevatedButton(
-            //       onPressed: () => widget.onLocaleChange(const Locale('tr')),
-            //       child: const Text( AppStrings.tr),
-            //     ),
-            //     const SizedBox(width: 10),
-            //     ElevatedButton(
-            //       onPressed: () => widget.onLocaleChange(const Locale('en')),
-            //       child: const Text( AppStrings.en ),
-            //     ),
-            //   ],
-            // ),
             const SizedBox(height: 20),
             const Divider(),
             const SizedBox(height: 20),
             if (Platform.isAndroid) ...[
-              googleButton(context, _signInWithGoogle),
+              ElevatedButton(
+                onPressed: _signInWithGoogle,
+                child: Text(t.signInWithGoogle),
+              ),
               const SizedBox(height: 10),
             ],
             if (Platform.isIOS) ...[
-              appleSignInButton(context, _signInWithApple),
+              ElevatedButton(
+                onPressed: _signInWithApple,
+                child: Text(t.signInWithApple),
+              ),
               const SizedBox(height: 10),
             ],
             if (_errorMessage.isNotEmpty) ...[

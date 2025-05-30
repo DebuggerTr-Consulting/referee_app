@@ -1,8 +1,11 @@
 {
   "@@locale": "en",
   "homeContent": "Home Content",
+  "@homeContent": {},
   "calendarContent": "Calendar View",
+  "@calendarContent": {},
   "searchContent": "Search View",
+  "@searchContent": {},
   "profileContent": "Profile Page",
   "settings": "Settings",
   "editProfile": "Edit Profile",
@@ -27,5 +30,19 @@
   "location": "Location",
   "leaguesParticipated": "Leagues Participated",
   "matches": "matches",
-  "settings": "Settings"
+  "save": "Save",
+  "requiredField": "This field is required",
+  "name": "Full Name",
+  "city": "City",
+  "country": "Country",
+  "logoutConfirm": "Are you sure you want to sign out?",
+  "cancel": "Cancel",
+  "confirm": "Yes",
+  "gender": "Gender",
+  "male": "Male",
+  "female": "Female",
+  "other": "Other",
+  "genderMale": "Male",
+  "genderFemale": "Female",
+  "genderOthers": "Other"
 }
