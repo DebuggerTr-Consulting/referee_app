@@ -1,5 +1,9 @@
 {
   "@@locale": "en",
+  "homeContent": "Home Content",
+  "calendarContent": "Calendar View",
+  "searchContent": "Search View",
+  "profileContent": "Profile Page",
   "settings": "Settings",
   "editProfile": "Edit Profile",
   "logout": "Sign Out",
@@ -13,5 +17,15 @@
   "needAccount": "Need an account? Sign Up",
   "haveAccount": "Have an account? Sign In",
   "signInWithGoogle": "Sign in with Google",
-  "signInWithApple": "Sign in with Apple"
+  "signInWithApple": "Sign in with Apple",
+  "home": "Home",
+  "calendar": "Calendar",
+  "search": "Search",
+  "profile": "Profile",
+  "birthDate": "Birth Date",
+  "refereeStartDate": "Start Date of Refereeing",
+  "location": "Location",
+  "leaguesParticipated": "Leagues Participated",
+  "matches": "matches",
+  "settings": "Settings"
 }

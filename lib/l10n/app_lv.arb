@@ -1,5 +1,9 @@
 {
   "@@locale": "lv",
+    "homeContent": "Sākuma saturs",
+"calendarContent": "Kalendāra skats",
+"searchContent": "Meklēšanas skats",
+"profileContent": "Profila lapa",
   "login": "Pieslēgties",
   "signUp": "Reģistrēties",
   "email": "E-pasts",
@@ -13,6 +17,16 @@
   "editProfile": "Rediģēt profilu",
   "profileEditClicked": "Noklikšķināts uz profila rediģēšanu.",
   "signInWithGoogle": "Pieteikties ar Google",
-  "signInWithApple": "Pieteikties ar Apple"
+  "signInWithApple": "Pieteikties ar Apple",
+  "home": "Sākums",
+  "calendar": "Kalendārs",
+  "search": "Meklēt",
+  "profile": "Profils",
+  "birthDate": "Dzimšanas datums",
+  "refereeStartDate": "Sākuma datums kā tiesnesim",
+  "location": "Atrašanās vieta",
+  "leaguesParticipated": "Piedalītās līgas",
+  "matches": "spēles",
+  "settings": "Iestatījumi"
 
 }

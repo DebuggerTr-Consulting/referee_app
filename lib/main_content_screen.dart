@@ -1,133 +1,63 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:referee_aplication/settings_screen_state.dart';
-import 'auth_screen.dart';
-import 'Strings/strings.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
+import 'profile_screen.dart';
 
 class MainContentScreen extends StatefulWidget {
   final void Function(Locale) onLocaleChange;
-
   const MainContentScreen({super.key, required this.onLocaleChange});
 
   @override
-  State<MainContentScreen> createState() => MainContentScreenState();
+  State<MainContentScreen> createState() => _MainContentScreenState();
 }
 
-class MainContentScreenState extends State<MainContentScreen> {
-  final _auth = FirebaseAuth.instance;
+class _MainContentScreenState extends State<MainContentScreen> {
+  int _selectedIndex = 0;
 
-  bool isExpanded = false;
-
-  void _signOut(BuildContext context) async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('isLoggedIn', false);
-    await _auth.signOut();
-    // ignore: use_build_context_synchronously
-    Navigator.of(context).pushReplacement(
-      MaterialPageRoute(
-        builder: (context) => AuthScreen(onLocaleChange: widget.onLocaleChange),
-      ),
-    );
-  }
-
-  void _toggleMenu() {
+  void _onItemTapped(int index) {
     setState(() {
-      isExpanded = !isExpanded;
+      _selectedIndex = index;
     });
   }
 
-  void _navigateToSettings() {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder:
-            (context) => SettingsScreen(onSignOut: () => _signOut(context)),
-      ),
-    );
-  }
-@override
+  @override
   Widget build(BuildContext context) {
-    final user = _auth.currentUser;
     final t = AppLocalizations.of(context)!;
 
+    final List<Widget> _pages = [
+      Center(child: Text(t.home)), // Translated home label
+      Center(child: Text(t.calendar)),
+      Center(child: Text(t.search)),
+      ProfileScreen(onLocaleChange: widget.onLocaleChange),
+    ];
+
     return Scaffold(
-      body: Row(
-        children: [
-          AnimatedContainer(
-            duration: const Duration(milliseconds: 300),
-            width: isExpanded ? 200 : 80,
-            color: Colors.blueGrey[900],
-            child: Column(
-              children: [
-                const SizedBox(height: 40),
-                GestureDetector(
-                  onTap: _toggleMenu,
-                  child: CircleAvatar(
-                    radius: 30,
-                    backgroundImage: user?.photoURL != null ? NetworkImage(user!.photoURL!) : null,
-                    child: user?.photoURL == null ? const Icon(Icons.person) : null,
-                  ),
-                ),
-                const SizedBox(height: 20),
-                if (isExpanded)
-                  ListTile(
-                    leading: const Icon(Icons.settings, color: Colors.white),
-                    title: Text(t.settings, style: const TextStyle(color: Colors.white)),
-                    onTap: _navigateToSettings,
-                  ),
-                // if (isExpanded)
-                //   ListTile(
-                //     leading: const Icon(Icons.logout, color: Colors.white),
-                //     title: Text(t.logout, style: const TextStyle(color: Colors.white)),
-                //     onTap: () => _signOut(context),
-                //   ),
-                const Spacer(),
-                if (isExpanded)
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 16.0),
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          ElevatedButton(
-                            onPressed: () => widget.onLocaleChange(const Locale('tr')),
-                            child: const Text(AppStrings.tr),
-                          ),
-                          const SizedBox(width: 10),
-                          ElevatedButton(
-                            onPressed: () => widget.onLocaleChange(const Locale('en')),
-                            child: const Text(AppStrings.en),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-              ],
-            ),
+      body: Center(
+        child: _pages.elementAt(_selectedIndex),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: Theme.of(context).primaryColor,
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: t.home,
           ),
-          Expanded(
-            child: Column(
-              children: [
-                AppBar(title: Text(t.welcome)),
-                Expanded(
-                  child: Center(child: Text(t.mainContent)),
-                ),
-              ],
-            ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.calendar_today),
+            label: t.calendar,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: t.search,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: t.profile,
           ),
         ],
       ),
     );
   }
-}
-  
-class SettingsScreen extends StatefulWidget {
-  final VoidCallback onSignOut;
-  const SettingsScreen({super.key, required this.onSignOut});
-
-  @override
-  State<SettingsScreen> createState() => SettingsScreenState();
 }

@@ -1,5 +1,9 @@
 {
   "@@locale": "tr",
+  "homeContent": "Ana Sayfa İçeriği",
+"calendarContent": "Takvim Görünümü",
+"searchContent": "Arama Sayfası",
+"profileContent": "Profil Sayfası",
   "settings": "Ayarlar",
   "editProfile": "Profili Düzenle",
   "logout": "Oturumu Kapat",
@@ -13,6 +17,16 @@
   "needAccount": "Hesabın yok mu? Kayıt ol",
   "haveAccount": "Hesabın var mı? Giriş yap",
   "signInWithGoogle": "Google ile giriş yap",
-  "signInWithApple": "Apple ile giriş yap"
+  "signInWithApple": "Apple ile giriş yap",
+   "home": "Ana Sayfa",
+  "calendar": "Takvim",
+  "search": "Arama",
+  "profile": "Profil",
+  "birthDate": "Doğum Tarihi",
+  "refereeStartDate": "Hakemliğe Başlama Tarihi",
+  "location": "Konum",
+  "leaguesParticipated": "Yer Aldığı Ligler",
+  "matches": "maç",
+  "settings": "Ayarlar"
 
 }
